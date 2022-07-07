@@ -17,18 +17,19 @@ public class GameManager : MonoBehaviour
     [Header("Generation Settings")]
     public Vector2Int mapDimensions = new Vector2Int(5,5);
     public int InitialRabbits = 5;
-    public int InitialFoxed = 3; 
+    public int InitialFoxes = 3; 
     public int InitialBears = 1;
     public int InitialHawk = 3;
     [Space(), Header("Generation Prefabs")]
     public List<GameObject> TilePrefabs;
     public GameObject RabbitPrefab;
-    
+    public GameObject FoxPrefab;
+
     [Space(), Header("Misc gen info")]
     public float AnimationTime = 1;
     public float TileScale;
     public List<TileManager> Tiles; 
-
+    public AnimalStats animalStats;
 
     [ContextMenu("Generate Map")]
     public void generateHexagonalMap()
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < InitialRabbits; i++){
             summonAnimal(RabbitPrefab, Tiles[Mathf.RoundToInt(Random.Range(0, Tiles.Count))]);
+        }
+        for (int i = 0; i < InitialFoxes; i++){
+            summonAnimal(FoxPrefab, Tiles[Mathf.RoundToInt(Random.Range(0, Tiles.Count))]);
         }
         
     }

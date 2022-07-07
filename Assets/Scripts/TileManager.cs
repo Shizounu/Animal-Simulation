@@ -40,7 +40,7 @@ public class TileManager : MonoBehaviour
                 continue;
             Animal.transform.position = VisualPositions[i].position;
             i+=1;
-            if(i > VisualPositions.Count)
+            if(i >= VisualPositions.Count)
                 i = 0;
         }
     }

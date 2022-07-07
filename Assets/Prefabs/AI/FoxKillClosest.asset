@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6306cb55f7cf0343ad81702b38856d5, type: 3}
   m_Name: FoxKillClosest
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: 7549609e8179540468918f37e0d88c54, type: 2}

@@ -6,9 +6,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveGameManager
 {
-    public static void SaveGame(){
+    public static void SaveAnimals(){
         BinaryFormatter formatter = new BinaryFormatter();
-        string Path = Application.persistentDataPath + "/Game.save";
+        string Path = Application.persistentDataPath + "/Animals.save";
         FileStream stream = new FileStream(Path,FileMode.Create);
 
         List<AnimalSave> AS = new();
@@ -22,8 +22,8 @@ public static class SaveGameManager
         stream.Close();
     }
 
-    public static List<AnimalSave> LoadGame(){
-        string Path = Application.persistentDataPath + "/Game.save";
+    public static List<AnimalSave> LoadAnimals(){
+        string Path = Application.persistentDataPath + "/Animals.save";
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(Path,FileMode.Open);
 

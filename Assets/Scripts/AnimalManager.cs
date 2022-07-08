@@ -26,6 +26,7 @@ public class AnimalManager : StateMachine
             for (int i = 0; i < AnimalStats.RabbitReproductionAmount; i++){
                 GameManager.Instance.summonAnimal(GameManager.Instance.RabbitPrefab, currentTile);
             }
+            Count = 0;
         }
     }
 

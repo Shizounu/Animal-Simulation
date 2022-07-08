@@ -66,9 +66,36 @@ public class GameManager : MonoBehaviour
         foreach (var tile in Tiles)
             tile.Tick();
     }
-    public void summonAnimal(GameObject AnimalPrefab,TileManager tm){
+    public void summonAnimal(GameObject AnimalPrefab,TileManager tm, int count = 0){
         AnimalManager t = Instantiate(AnimalPrefab, transform.position, Quaternion.identity).GetComponent<AnimalManager>();
+        t.Count = count;
         t.RegisterWithTile(tm);
+    }
+    #endregion
+
+    #region Savegame Logic
+    [ContextMenu("Save Game")]
+    public void SaveGame(){
+        SaveGameManager.SaveAnimals();
+    }
+
+    [ContextMenu("Load Game")]
+    public void LoadGame(){
+        List<AnimalSave> animalSaves = SaveGameManager.LoadAnimals();
+        foreach (var AnimalSave in animalSaves){
+            switch (AnimalSave.ID)
+            {
+                case 0 : 
+                    summonAnimal(RabbitPrefab, Tiles[AnimalSave.Position], AnimalSave.Count);
+                    break;
+                case 1 : 
+                    summonAnimal(FoxPrefab, Tiles[AnimalSave.Position], AnimalSave.Count);
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
     #endregion
 }

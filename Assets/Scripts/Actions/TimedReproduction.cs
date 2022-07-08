@@ -9,5 +9,6 @@ public class TimedReproduction : Shizounu.AI.Action
     public override void Act(StateMachine stateMachine){
         ((AnimalManager)stateMachine).Count += 1;
         ((AnimalManager)stateMachine).Reproduce();
+
     }
 }
